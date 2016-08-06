@@ -1,3 +1,19 @@
+[submodule ".vim/bundle/Vundle.vim"]
+    path = .vim/bundle/Vundle.vim
+    url = https://github.com/VundleVim/Vundle.vim.git
+
+[submodule ".vim/bundle/vim-airline"]
+    path = .vim/bundle/vim-airline
+    url = https://github.com/vim-airline/vim-airline.git
+
+[submodule ".vim/bundle/NERDTree"]
+    path = .vim/bundle/NERDTree
+    url = https://github.com/scrooloose/nerdtree.git
+
+[submodule ".vim/bundle/Syntastic"]
+    path = .vim/bundle/Syntastic
+    url = https://github.com/scrooloose/syntastic.git
+
 [submodule ".vim/bundle/ctrlp.vim"]
     path = .vim/bundle/ctrlp.vim
     url = https://github.com/kien/ctrlp.vim.git
