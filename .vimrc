@@ -47,6 +47,7 @@ Plugin 'scrooloose/NERDTree'
 Plugin 'scrooloose/Syntastic'
 Plugin 'kien/ctrlp.vim'
 Plugin 'vim-airline/vim-airline'
+Plugin 'ervandew/supertab'
 " plugin from http://vim-scripts.org/vim/scripts.html
 "Plugin 'L9'
 " Git plugin not hosted on GitHub
