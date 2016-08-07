@@ -7,5 +7,6 @@ cp -a .vim ~/.vim
 cp .tmux.conf ~/.tmux.conf
 cp .gitconfig ~/.gitconfig
 cp -a .oh-my-zsh ~/.oh-my-zsh
-cp -a bin ~/bin
+cp -a bin ~/
 cp rohit.zsh-theme ~/.oh-my-zsh/themes/
+tmux attach -t main || tmux new -s main
