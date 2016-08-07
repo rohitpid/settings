@@ -1,5 +1,6 @@
 #!/bin/bash
 
+sudo apt-get install zsh && sudo chsh -s /bin/zsh $USER
 cp .zshrc ~/.zshrc
 cp .vimrc ~/.vimrc
 cp -a .vim ~/.vim
