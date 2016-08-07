@@ -1,0 +1,32 @@
+#!/bin/sh
+
+HOST="$1"
+SESSION="$2"
+SSH_PARAMS="${@:3}"
+
+if [ -z "$2" ]; then
+  SESSION=main
+fi
+
+if [ -z "$HOST" ]; then
+  echo "Usage:"
+  echo "  ss host [session-name] [ssh params...]"
+  exit 0
+fi
+
+if [[ $HOST =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+  SSH_PARAMS="$SSH_PARAMS -o StrictHostKeyChecking=no"
+  SSH_PARAMS="$SSH_PARAMS -o UserKnownHostsFile=/dev/null"
+fi
+
+#if [ "$SESSION" == "ls" ]; then
+#  ssh -t $HOST $SSH_PARAMS screen -wipe
+#  exit 0
+#fi
+
+ssh $HOST $SSH_PARAMS [[ -f .zshrc ]]
+if [ $? -ne 0 ]; then
+  ssh-remote-setup "$HOST" "$USER" "$SSH_PARAMS"
+fi
+
+ssh -t $HOST $SSH_PARAMS tmux attach -t "$SESSION"

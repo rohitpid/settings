@@ -1,0 +1,35 @@
+#!/bin/bash
+
+set -e
+
+if [ -z "$1" ]; then
+  echo "Usage:"
+  echo "  ssh-remote-setup host [user] [ssh params...]"
+  exit 0
+fi
+
+USER=rohit
+if [ ! -z "$2" ]; then
+  USER="$2"
+fi
+
+#if  [[ $(ssh ${@3} "$1" "uname -s") == "Linux" ]] && [[ $(ssh ${@3} "$1" "lsb_release -i | awk '{print $3}'") == "Ubuntu" ]]; then
+#    echo "This is Ubuntu"
+#    sudo apt-get install git
+#fi
+
+#ssh ${@:3} "$1" "sudo apt-get install zsh && sudo chsh -s /bin/zsh $USER"
+#scp ${@:3} ~/.zshrc ~/.zsh_vi ~/.gitconfig ~/.inputrc ~/.editrc ~/.screenrc "$1:"
+#scp ${@:3} ~/.zsh_profile_remote "$1:.zsh_profile"
+#scp ${@:3} ~/.vimrc_remote "$1:.vimrc"
+#scp ${@:3} ~/.toprc_remote "$1:.toprc"
+
+if ! type git > /dev/null; then
+      ssh ${@3} "$1" "sudo apt-get install git"
+fi
+
+ssh ${@:3} "$1" "sudo apt-get install zsh && sudo chsh -s /bin/zsh $USER"
+scp ${@:3} ~/.zshrc ~/.gitconfig ~/.tmux.conf "$1:"
+scp ${@:3} ~/.vimrc "$1:.vimrc"
+scp -r ${@:3} ~/.vim "$1:.vim"
+
