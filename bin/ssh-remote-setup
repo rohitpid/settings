@@ -24,11 +24,11 @@ fi
 #scp ${@:3} ~/.vimrc_remote "$1:.vimrc"
 #scp ${@:3} ~/.toprc_remote "$1:.toprc"
 
-if ! type git > /dev/null; then
-      ssh ${@3} "$1" "sudo apt-get install git"
-fi
+#if ! type git > /dev/null; then
+#      ssh ${@3} "$1" "sudo apt-get install git"
+#fi
 
-ssh ${@:3} "$1" "sudo apt-get install zsh && sudo chsh -s /bin/zsh $USER"
+ssh ${@:3} "$1" "sudo apt-get -y install zsh && sudo chsh -s /bin/zsh $USER"
 scp ${@:3} ~/.zshrc ~/.gitconfig ~/.tmux.conf "$1:"
 scp ${@:3} ~/.vimrc "$1:.vimrc"
 scp -r ${@:3} ~/.vim "$1:.vim"
