@@ -83,6 +83,9 @@ prompt_context() {
   if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
     prompt_segment magenta white "%(!.%{%F{yellow}%}.)$USER@%m"
   fi
+  if [[ $IN_VAGRANT == "yes" ]]; then
+      prompt_segment red white "vagrant"
+  fi
 }
 
 # Git: branch/detached head, dirty status
@@ -203,4 +206,7 @@ build_prompt() {
   prompt_end
 }
 NEWLINE=$'\n'
+#if [[ $IN_VAGRANT == "yes" ]]; then
+#    RPROMPT='%{$bg[red]%}%{$fg[yellow]%}VAGRANT%{$reset_color%}'
+#fi
 PROMPT='%{%f%b%k%}$(build_prompt)${NEWLINE}-> '
