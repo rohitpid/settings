@@ -29,8 +29,13 @@ fi
 #fi
 
 ssh ${@:3} "$1" "sudo apt-get -y install zsh && sudo chsh -s /bin/zsh $USER"
-scp ${@:3} ~/.zshrc ~/.gitconfig ~/.tmux.conf "$1:"
-scp ${@:3} ~/.vimrc "$1:.vimrc"
-scp -r ${@:3} ~/.vim "$1:.vim"
-scp -r ${@:3} ~/bin "$1:~/bin"
-scp -r ${@:3} ~/.oh-my-zsh "$1:.oh-my-zsh"
+#scp -C ${@:3} ~/.zshrc ~/.gitconfig ~/.tmux.conf "$1:"
+#scp -C ${@:3} ~/.vimrc "$1:.vimrc"
+#scp -C -r ${@:3} ~/.vim "$1:.vim"
+#scp -C -r ${@:3} ~/bin "$1:~/bin"
+#scp -C -r ${@:3} ~/.oh-my-zsh "$1:.oh-my-zsh"
+rsync -rtvpl -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ${@:3}" ~/.zshrc ~/.gitconfig ~/.tmux.conf "$1:"
+rsync -rtvpl -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ${@:3}" ~/.vimrc "$1:"
+rsync -rtvpl -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ${@:3}" ~/.vim "$1:"
+rsync -rtvpl -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ${@:3}" ~/bin "$1:"
+rsync -rtvpl -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ${@:3}" ~/.oh-my-zsh "$1:"
