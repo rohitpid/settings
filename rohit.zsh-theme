@@ -79,8 +79,9 @@ prompt_end() {
 
 # Context: user@hostname (who am I and where am I)
 prompt_context() {
+  my_purple=$'\e[48;5;91m'
   if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-    prompt_segment black default "%(!.%{%F{yellow}%}.)$USER@%m"
+    prompt_segment magenta white "%(!.%{%F{yellow}%}.)$USER@%m"
   fi
 }
 
