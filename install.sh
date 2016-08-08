@@ -1,6 +1,8 @@
 #!/bin/bash
 
-sudo apt-get install zsh && sudo chsh -s /bin/zsh $USER
+if [[ $(echo $SHELL) != "/bin/zsh" ]]; then
+    sudo apt-get install zsh && sudo chsh -s /bin/zsh $USER
+fi
 cp .zshrc ~/.zshrc
 cp .vimrc ~/.vimrc
 cp -a .vim ~/.vim
