@@ -1,2 +1,2 @@
-#!/bin/bash
+#!/bin/zsh
 arr=(); for i in {000..255}; do arr+=("%K{$i} $i %k"); done; print -cP $arr
