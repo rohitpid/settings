@@ -1,0 +1,11 @@
+if [ "$USER" != "rohit" ]; then
+  cd "/home/$USER"
+  export HISTFILE="/home/$USER/.zsh_history"
+  export PATH="/home/$USER/bin:$PATH"
+  if [ -f "/home/$USER/venvs/ditto/bin/activate" ]; then
+    . "/home/$USER/venvs/ditto/bin/activate"
+  fi
+  if [ -f "/home/$USER/.awsrc" ]; then
+    . "/home/$USER/.awsrc"
+  fi
+fi

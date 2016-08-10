@@ -83,3 +83,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export PATH=~/bin/:$PATH
+
+if [ -f ~/.zsh_profile ]; then
+    . ~/.zsh_profile
+fi

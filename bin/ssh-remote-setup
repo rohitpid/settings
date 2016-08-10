@@ -39,3 +39,4 @@ rsync -rtvpl -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null
 rsync -rtvpl -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ${@:3}" ~/.vim "$1:"
 rsync -rtvpl -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ${@:3}" ~/bin "$1:"
 rsync -rtvpl -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ${@:3}" ~/.oh-my-zsh "$1:"
+rsync -rtvpl -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ${@:3}" ~/.zsh_profile_remote "$1:.zsh_profile"
