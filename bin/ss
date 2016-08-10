@@ -29,4 +29,4 @@ if [ $? -ne 0 ]; then
   ssh-remote-setup "$HOST" "$USER" "$SSH_PARAMS"
 fi
 
-ssh -t $HOST $SSH_PARAMS tmux attach -t "$SESSION" || ssh -t $HOST $SSH_PARAMS tmux new -s "$SESSION"
+ssh -t $HOST $SSH_PARAMS tmux -CC attach -t "$SESSION" || ssh -t $HOST $SSH_PARAMS tmux -CC new -s "$SESSION"
