@@ -83,8 +83,8 @@ prompt_context() {
   if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
     prompt_segment 91 white "%(!.%{%F{yellow}%}.)$USER@%m"
   fi
-  if [[ $IN_VAGRANT == "yes" ]]; then
-      prompt_segment red white "vagrant"
+  if [[ -n "$MY_LABEL" ]]; then
+      prompt_segment red white $MY_LABEL
   fi
 }
 
