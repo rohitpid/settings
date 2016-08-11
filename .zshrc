@@ -87,3 +87,7 @@ export PATH=~/bin/:$PATH
 if [ -f ~/.zsh_profile ]; then
     . ~/.zsh_profile
 fi
+
+if  [[ $(uname -s) == "Darwin" ]]; then
+    . ~/.zshrc_mac
+fi
