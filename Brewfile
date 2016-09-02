@@ -12,6 +12,8 @@ brew 'nmap'
 #ruby-build
 brew 'tmux'
 brew 'wget'
+brew 'ansible'
+cask 'vagrant'
 cask '1password'
 cask 'iterm2'
 cask 'spotify'
