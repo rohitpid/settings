@@ -1,8 +1,13 @@
 #!/bin/bash
 
-if [[ $(echo $SHELL) != "/bin/zsh" ]]; then
-    sudo apt-get install zsh && sudo chsh -s /bin/zsh $USER
+if [[ $(uname -s) == "Linux" && $(echo $SHELL) != "/bin/zsh" ]]; then
+    sudo apt-get install zsh
 fi
+if  [[ $(uname -s) == "Darwin" ]]; then
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    brew bundle
+fi
+sudo chsh -s /bin/zsh $USER
 cp .zshrc ~/.zshrc
 cp .vimrc ~/.vimrc
 cp -a .vim ~/.vim
@@ -12,4 +17,5 @@ cp -a .oh-my-zsh ~/.oh-my-zsh
 cp -a bin ~/
 cp rohit.zsh-theme ~/.oh-my-zsh/themes/
 cp .zsh_profile_remote ~/.zsh_profile_remote
+cp .zshrc_mac ~/.zshrc_mac
 tmux attach -t main || tmux new -s main
