@@ -10,6 +10,7 @@ brew 'nmap'
 #protobuf
 #rbenv
 #ruby-build
+brew 'flake8'
 brew 'tmux'
 brew 'wget'
 brew 'ansible'
