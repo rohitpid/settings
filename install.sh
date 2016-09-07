@@ -1,8 +1,14 @@
 #!/bin/bash
 
-if [[ $(uname -s) == "Linux" && $(echo $SHELL) != "/bin/zsh" ]]; then
+if  [[ $(uname -s) == "Linux" ]] && [[ $(lsb_release -i | awk '{print $3}') == "Ubuntu" ]]; then
     sudo apt-get install zsh
+    xargs -a <(awk '/^\s*[^#]/' "$packagelist") -r -- sudo apt-get install
 fi
+
+#if [[ $(uname -s) == "Linux" ]] && $(echo $SHELL) != "/bin/zsh" ]]; then
+#    sudo apt-get install zsh
+#fi
+
 if  [[ $(uname -s) == "Darwin" ]]; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew bundle
