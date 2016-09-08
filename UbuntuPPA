@@ -1,0 +1,9 @@
+#!/bin/bash
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list'
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys D2C19886
+sudo sh -c 'echo "deb http://repository.spotify.com stable non-free" > /etc/apt/sources.list.d/spotify.list'
+sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 5044912E
+ sudo sh -c 'echo "deb http://linux.dropbox.com/ubuntu/ xenial main" > /etc/apt/sources.list.d/dropbox.list'
+
+#sudo add-apt-repository ppa:(Your ppa here) -y

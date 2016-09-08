@@ -1,8 +1,10 @@
 #!/bin/bash
 
 if  [[ $(uname -s) == "Linux" ]] && [[ $(lsb_release -i | awk '{print $3}') == "Ubuntu" ]]; then
-    sudo apt-get install zsh
-    xargs -a <(awk '/^\s*[^#]/' "$packagelist") -r -- sudo apt-get install
+    #sudo apt-get install zsh
+    ./UbuntuPPA
+    sudo apt-get update
+    xargs -a <(awk '/^\s*[^#]/' "UbuntuPackages") -r -- sudo apt-get install -y
 fi
 
 #if [[ $(uname -s) == "Linux" ]] && $(echo $SHELL) != "/bin/zsh" ]]; then
