@@ -28,7 +28,8 @@ fi
 #      ssh ${@3} "$1" "sudo apt-get install git"
 #fi
 
-ssh ${@:3} "$1" "sudo apt-get -y install zsh && sudo chsh -s /bin/zsh $USER"
+ssh ${@:3} "$1" "sudo apt-get -y install zsh"
+ssh ${@:3} "$1" "sudo chsh -s /bin/zsh $USER"
 #scp -C ${@:3} ~/.zshrc ~/.gitconfig ~/.tmux.conf "$1:"
 #scp -C ${@:3} ~/.vimrc "$1:.vimrc"
 #scp -C -r ${@:3} ~/.vim "$1:.vim"
