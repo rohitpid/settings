@@ -24,6 +24,7 @@ This project exists because it is a pain to set up a new system every time you s
 + tmux configuration in tmux.conf
 + gitconfig - Please change this file if you use this repository
 + zsh - Make zsh the default shell and installs oh-my-zsh with my personal theme
+![My Shell](https://drive.google.com/open?id=0B4CqCr3Pq9naemltMW05dkt4WlE)
 + Detect if Debian/Ubuntu/LinuxMint or MacOSX and Install packages
  + Install PPAs and packages (See UbuntuPPA and UbuntuPackages file to see what is installed)
  + Install relevant packages for MacOSX (Read Brewfile to see what is installed)
