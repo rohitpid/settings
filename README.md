@@ -36,8 +36,8 @@ This project exists because it is a pain to set up a new system every time you s
 1. Review packages to be installed in Brewfile or UbuntuPackages to make sure you are ok with what will be installed.
 2. Change .gitconfig to contain your specific email and username
 3. Run ./install.sh
-4. Open iterm2 and go to preferences->>general->"Load Preferences from a custom file or folder" and select the folder as ~/settings/iterm2_profile/
-
+4. Open iterm2 and go to preferences->general->"Load Preferences from a custom file or folder" and select the folder as ~/settings/iterm2_profile/
+![iterm2 settings](https://lh5.googleusercontent.com/8xsC_YrAoN-I8fACBOHqX8W4thua-T5FZys_osbOfbB0CzY5RkKdbFduBhJlNMYLtKtw6N4kpcZXY6A=w2872-h1606-rw)
 ## Contributors
 
 Rohit Pidaparthi and special thanks to Oleg Selivanov for ideas for the scripts in ~/bin/
