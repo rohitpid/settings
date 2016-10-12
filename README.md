@@ -1,6 +1,6 @@
 ## Synopsis
 
-This is Rohit's personal repository of scripts, settings and plugins for setting up a new system. This includes installing my settings for iterm2, zsh, vim, git, tmux as well as installing appropriate packages depending on if run on Ubuntu or macOS. Additionally we place some helper scripts in ~/bin/
+This is Rohit's personal repository of scripts, settings and plugins for setting up a new system. This includes installing my settings for iterm2, zsh, vim, git, tmux as well as installing appropriate packages for either Ubuntu or macOS. Additionally we place some helper scripts in ~/bin/
 
 ## Motivation
 
@@ -33,10 +33,11 @@ This project exists because it is a pain to set up a new system every time you s
 
 ## Installation
 
-1. Review packages to be installed in Brewfile or UbuntuPackages to make sure you are ok with what will be installed.
-2. Change .gitconfig to contain your specific email and username
-3. Run ./install.sh
-4. Open iterm2 and go to preferences->general->"Load Preferences from a custom file or folder" and select the folder as ~/settings/iterm2_profile/
+1. Review packages to be installed in Brewfile or UbuntuPackages and add/remove packages you want installed.
+2. Edit .gitconfig with your own email and username for git
+3. MacOS only: Install powerline fonts from https://github.com/powerline/fonts
+4. Run ./install.sh
+5. Open iterm2 and go to preferences->general->"Load Preferences from a custom file or folder" and select the folder as ~/settings/iterm2_profile/
 ![iterm2 settings](http://i63.tinypic.com/5yyhow.png)
 
 ## Contributors
