@@ -16,7 +16,7 @@ This project exists because it is a pain to set up a new system every time you s
  + NERDTree for file browser capability
  + supertab for better tab completion
 + Scripts in ~/bin/
- + ss which rsync's your zsh, git to a machine you want to ssh into. e.g. ss 10.23.16.19
+ + ss, a custom ssh which rsync's your zsh, git, vim settings and opens (or reconnects to) tmux on remote machine. e.g. ss 10.23.16.19
  + my ls-ec2 which displays a list of ec2 instances and associated information in a nice table
  + colourchart which shows you the color codes for theming in oh-my-zsh
  + my du which does a du and sorts the results. e.g. my du /var/log/\*
