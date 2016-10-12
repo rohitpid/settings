@@ -24,7 +24,7 @@ This project exists because it is a pain to set up a new system every time you s
 + tmux configuration in tmux.conf
 + gitconfig - Please change this file if you use this repository
 + zsh - Make zsh the default shell and installs oh-my-zsh with my personal theme
-![My Shell](https://lh6.googleusercontent.com/Y2oHRGwtcJ3aErttGQRvphB_lDn_vrmivGGuf-2lfRW-J5TyiVRFZTjXmeEla4L97GDg1Zzh2j1KlbA=w2872-h1606-rw)
+![My Shell](http://i65.tinypic.com/2vb08p2.png)
 + Detect if Debian/Ubuntu/LinuxMint or MacOSX and Install packages
  + Install PPAs and packages (See UbuntuPPA and UbuntuPackages file to see what is installed)
  + Install relevant packages for MacOSX (Read Brewfile to see what is installed)
@@ -37,7 +37,7 @@ This project exists because it is a pain to set up a new system every time you s
 2. Change .gitconfig to contain your specific email and username
 3. Run ./install.sh
 4. Open iterm2 and go to preferences->general->"Load Preferences from a custom file or folder" and select the folder as ~/settings/iterm2_profile/
-![iterm2 settings](https://lh5.googleusercontent.com/8xsC_YrAoN-I8fACBOHqX8W4thua-T5FZys_osbOfbB0CzY5RkKdbFduBhJlNMYLtKtw6N4kpcZXY6A=w2872-h1606-rw)
+![iterm2 settings](http://i63.tinypic.com/5yyhow.png)
 
 ## Contributors
 
