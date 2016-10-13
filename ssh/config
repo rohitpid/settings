@@ -1,0 +1,12 @@
+ForwardAgent yes
+Host vagrant
+  HostName 127.0.0.1
+  User ubuntu
+  Port 2222
+  UserKnownHostsFile /dev/null
+  StrictHostKeyChecking no
+  PasswordAuthentication no
+  IdentityFile ~/source/recommendations/vagrant/.vagrant/machines/default/virtualbox/private_key 
+  IdentitiesOnly yes
+  LogLevel FATAL
+  ForwardAgent yes

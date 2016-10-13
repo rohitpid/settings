@@ -24,7 +24,7 @@ This project exists because it is a pain to set up a new system every time you s
 + tmux configuration in tmux.conf
 + gitconfig - Please change this file if you use this repository
 + zsh - Make zsh the default shell and installs oh-my-zsh with my personal theme
-![My Shell](http://i65.tinypic.com/2vb08p2.png)
+![My Shell](https://dl.dropboxusercontent.com/u/28516129/Screen%20Shot%202016-10-11%20at%204.31.42%20PM.png)
 + Detect if Debian/Ubuntu/LinuxMint or MacOSX and Install packages
  + Install PPAs and packages (See UbuntuPPA and UbuntuPackages file to see what is installed)
  + Install relevant packages for MacOSX (Read Brewfile to see what is installed)
@@ -38,11 +38,17 @@ This project exists because it is a pain to set up a new system every time you s
 3. MacOS only: Install powerline fonts from https://github.com/powerline/fonts
 4. Run ./install.sh
 5. Open iterm2 and go to preferences->general->"Load Preferences from a custom file or folder" and select the folder as ~/settings/iterm2_profile/
-![iterm2 settings](http://i63.tinypic.com/5yyhow.png)
+![iterm2 settings](https://dl.dropboxusercontent.com/u/28516129/Screen%20Shot%202016-10-11%20at%204.48.51%20PM.png)
+
+## Usage
+
++ When using zsh you can: export MY_LABEL='labelname' to get an extra red segment to label your terminal for special hosts
+![MY_LABEL](https://dl.dropboxusercontent.com/u/28516129/Screen%20Shot%202016-10-12%20at%2012.57.03%20PM.png)
++ Use ss <ip> instead of ssh to get your settings rsynced to the remote host and start tmux or reconnect to existing tmux session.
 
 ## Contributors
 
-Rohit Pidaparthi and special thanks to Oleg Selivanov for ideas for the scripts in ~/bin/
+Rohit Pidaparthi and special thanks to Oleg Selivanov for the basis and ideas for the scripts in ~/bin/
 
 ## License
 
