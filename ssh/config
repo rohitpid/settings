@@ -1,3 +1,10 @@
+Host *
+  ServerAliveInterval 10
+  ControlMaster auto
+  ControlPath ~/.ssh/control/%r@%h:%p
+  ControlPersist 1
+  PermitLocalCommand yes
+
 ForwardAgent yes
 Host vagrant
   HostName 127.0.0.1
