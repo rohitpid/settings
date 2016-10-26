@@ -1,0 +1,2 @@
+#!/bin/sh
+git --no-pager log -n 35 --branches --tags --graph --date=relative --pretty=format:"%h  %ad  %C(red)%ae%Creset%x09%C(green)%d %Creset%s"

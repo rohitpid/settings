@@ -1,2 +1,8 @@
 #!/bin/bash
+if [ $1 ]; then
+    aws --profile $1 ec2 describe-instances --output table --query "Reservations[].Instances[].[(Tags[?Key=='Name'].Value)[0], InstanceId, InstanceType, State.Name, PrivateIpAddress, PublicIpAddress,(Tags[?Key=='aws:autoscaling:groupName'].Value)[0]]" | grep 'i-' | sort | tr '|' ' ' | sed -e "s/ *$//g"
+
+fi
+
 aws ec2 describe-instances --output table --query "Reservations[].Instances[].[(Tags[?Key=='Name'].Value)[0], InstanceId, InstanceType, State.Name, PrivateIpAddress, PublicIpAddress,(Tags[?Key=='aws:autoscaling:groupName'].Value)[0]]" | grep 'i-' | sort | tr '|' ' ' | sed -e "s/ *$//g"
+
