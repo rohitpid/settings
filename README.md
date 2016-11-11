@@ -33,11 +33,12 @@ This project exists because it is a pain to set up a new system every time you s
 
 ## Installation
 
-1. Review packages to be installed in Brewfile or UbuntuPackages and add/remove packages you want installed.
-2. Edit .gitconfig with your own email and username for git
-3. MacOS only: Install powerline fonts from https://github.com/powerline/fonts
-4. Run ./install.sh
-5. Open iterm2 and go to preferences->general->"Load Preferences from a custom file or folder" and select the folder as ~/settings/iterm2_profile/
+1. git clone --recursive https://github.com/rohitpid/settings.git
+2. Review packages to be installed in Brewfile or UbuntuPackages and add/remove packages you want installed.
+3. Edit .gitconfig with your own email and username for git
+4. MacOS only: Install powerline fonts from https://github.com/powerline/fonts
+5. Run ./install.sh
+6. Open iterm2 and go to preferences->general->"Load Preferences from a custom file or folder" and select the folder as ~/settings/iterm2_profile/
 ![iterm2 settings](https://dl.dropboxusercontent.com/u/28516129/Screen%20Shot%202016-10-11%20at%204.48.51%20PM.png)
 
 ## Usage
