@@ -1,3 +1,7 @@
+[submodule "powerlevel9k"]
+    path = powerlevel
+    url = "https://github.com/bhilburn/powerlevel9k.git"
+
 [submodule ".vim/bundle/Vundle.vim"]
     path = .vim/bundle/Vundle.vim
     url = https://github.com/VundleVim/Vundle.vim.git
@@ -21,9 +25,7 @@
 [submodule ".vim/bundle/supertab"]
 	path = .vim/bundle/supertab
     url = https://github.com/ervandew/supertab.git
+
 [submodule ".oh-my-zsh"]
 	path = .oh-my-zsh
     url = https://github.com/robbyrussell/oh-my-zsh.git
-[submodule "powerlevel9k"]
-    path = powerlevel
-    url = https://github.com/bhilburn/powerlevel9k.git
