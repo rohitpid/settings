@@ -24,6 +24,8 @@ cp .gitconfig ~/.gitconfig
 cp -a .oh-my-zsh ~/.oh-my-zsh
 cp -a bin ~/
 cp rohit.zsh-theme ~/.oh-my-zsh/themes/
+cp -a powerlevel9k ~/.oh-my-zsh/themes/
 cp .zsh_profile_remote ~/.zsh_profile_remote
 cp .zshrc_mac ~/.zshrc_mac
+sudo snap install slack --classic
 tmux attach -t main || tmux new -s main
