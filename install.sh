@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if  [[ $(uname -s) == "Linux" ]] && [[ $(lsb_release -i | awk '{print $3}') == "Ubuntu" ]]; then
-    #sudo apt-get install zsh
+    sudo apt-get install curl
     ./UbuntuPPA
     sudo apt-get update
     xargs -a <(awk '/^\s*[^#]/' "UbuntuPackages") -r -- sudo apt-get install -y
