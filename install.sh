@@ -14,6 +14,13 @@ if  [[ $(uname -s) == "Linux" ]] && [[ $(lsb_release -i | awk '{print $3}') == "
     ./UbuntuPPA
     sudo apt-get update
     xargs -a <(awk '/^\s*[^#]/' "UbuntuPackages") -r -- sudo apt-get install -y
+    printf '#%.0s' {1..80}
+    printf '\n'
+    echo -e "${GREEN}Installing snaps for slack and clion${NC}"
+    printf '#%.0s' {1..80}
+    printf '\n'
+    sudo snap install slack --classic
+    sudo snap install clion --classic
 fi
 
 #if [[ $(uname -s) == "Linux" ]] && $(echo $SHELL) != "/bin/zsh" ]]; then
@@ -73,14 +80,6 @@ cp rohit.zsh-theme ~/.oh-my-zsh/themes/
 cp -a powerlevel9k ~/.oh-my-zsh/themes/
 cp .zsh_profile_remote ~/.zsh_profile_remote
 cp .zshrc_mac ~/.zshrc_mac
-
-printf '#%.0s' {1..80}
-printf '\n'
-echo -e "${GREEN}Installing snaps for slack and clion${NC}"
-printf '#%.0s' {1..80}
-printf '\n'
-sudo snap install slack --classic
-sudo snap install clion --classic
 
 printf '#%.0s' {1..80}
 printf '\n'
