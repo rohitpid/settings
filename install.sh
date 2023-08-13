@@ -18,6 +18,11 @@ function print_section_header () {
 }
 
 function print_help () {
+
+    COLUMNS=$(tput cols) 
+    title="New Machine Setup Tool"
+    printf "${CYAN}%*s\n${NC}" $(((${#title}+$COLUMNS)/2)) "$title"
+
     echo "Set up a new machine with dotfiles and common repos and programs such as"
     echo "vim, curl, chrome, tmux, zsh as well as oh-my-zsh themes and flatpaks for"
     echo "vscode, spotify and dropbox."
