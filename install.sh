@@ -80,6 +80,8 @@ function setup_vim () {
     else
         echo ".vim directory already exists, skipping"
     fi
+    mkdir -p .vim/bundle
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim 
 }
 
 function setup_rohit_specific () {
