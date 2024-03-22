@@ -38,7 +38,8 @@ This project exists because it is a pain to set up a new system every time you s
 3. Edit .gitconfig with your own email and username for git
 4. MacOS only: Install powerline fonts from https://github.com/powerline/fonts
 5. Run ./install.sh
-6. Open iterm2 and go to preferences->general->"Load Preferences from a custom file or folder" and select the folder as ~/settings/iterm2_profile/
+6. Open vim (ignore the errors on startup the first time) and run :PluginInstall
+7. Open iterm2 and go to preferences->general->"Load Preferences from a custom file or folder" and select the folder as ~/settings/iterm2_profile/
 ![iterm2 settings](https://raw.githubusercontent.com/rohitpid/settings/master/images/iterm2.png)
 
 ## Usage
