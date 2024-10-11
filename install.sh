@@ -113,14 +113,10 @@ function setup_zsh_themes () {
     cp .zsh_profile_remote ~/.zsh_profile_remote
 }
 
-function setup_tmux_config () {
-    print_section_header "Setting up tmux.conf"
+function setup_config_dir () {
+    print_section_header "Setting up tmux, nvim, kitty configs"
 
-    if [ ! -f ~/.tmux.conf ]; then
-        cp .tmux.conf ~/.tmux.conf
-    else
-        echo ".tmux.conf already exists, skipping"
-    fi
+    rsync -a .config ~/.config
 }
 
 
@@ -192,4 +188,4 @@ then
 fi
 
 
-setup_tmux_config
+setup_config_dir

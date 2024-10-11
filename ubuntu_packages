@@ -1,9 +1,13 @@
 zsh
 vim
 tmux
-snapd
 fonts-powerline
 curl
 flatpak
 gnome-software-plugin-flatpak
 google-chrome-stable
+kitty
+neovim
+fzf
+ranger
+tmux-plugin-manager
