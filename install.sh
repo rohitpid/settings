@@ -32,7 +32,7 @@ function print_help () {
     echo "Options:"
     echo "  -a | --all installs all applications possible for OS"
     echo "  -z | --zsh installs zsh, sets it as default shell and installs themes"
-    echo "  -nf| --no-flatpak skips installation of spotify, dropbox, vscode flatpaks"
+    echo "  -f | --flatpak skips installation of spotify, dropbox, slack flatpaks"
     echo "  -v | --vim-plugins enables installation of vim plugins"
     echo "  -h | --help prints this message"
 }
@@ -46,11 +46,11 @@ function install_flatpaks () {
 function setup_linux () {
     print_section_header "Detected Ubuntu. Installing ubuntu packages"
 
-    ./ubuntu_ppas
+    # ./ubuntu_ppas
     sudo apt-get update
     xargs -a <(awk '/^\s*[^#]/' "ubuntu_packages") -r -- sudo apt-get install -y
 
-    if  [[ ! ${FLATPAKS} == "NO" ]]; then
+    if  [[ ${FLATPAKS} == "YES" ]]; then
         install_flatpaks
     fi
 }
@@ -108,6 +108,7 @@ function setup_zsh_themes () {
     print_section_header "Setting up oh-my-zsh theme and powerlevel10k"
 
     cp -a .oh-my-zsh ~/.oh-my-zsh
+    mkdir -p .oh-my-zsh/themes
     cp rohit.zsh-theme ~/.oh-my-zsh/themes/
     cp -a powerlevel10k ~/.oh-my-zsh/themes/
     cp .zsh_profile_remote ~/.zsh_profile_remote
@@ -132,8 +133,8 @@ while [[ $# -gt 0 ]]; do
       ZSH=YES
       shift # past argument
       ;;
-    -nf|--no-flatpak)
-      FLATPAKS=NO
+    -f|--flatpak)
+      FLATPAKS=YES
       shift # past argument
       ;;
     -v|--vim-plugins)
