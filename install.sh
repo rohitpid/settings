@@ -8,33 +8,13 @@ cols=$(tput cols)
 function print_section_header () {
     COLUMNS=$(tput cols) 
     title=$1
-    printf "${GREEN}#%.0s${NC}" {1..80}
-    printf "%*s\n" $(((${#title}+$COLUMNS)/2)) "$title"
     printf '\n'
-    # echo -e "$1"
-    # # printf '#%.0s' {1..80}
-    # printf '\n'
-
-}
-
-function print_help () {
-
-    COLUMNS=$(tput cols) 
-    title="New Machine Setup Tool"
-    printf "${CYAN}%*s\n${NC}" $(((${#title}+$COLUMNS)/2)) "$title"
-
-    echo "Set up a new machine with dotfiles and common repos and programs such as"
-    echo "vim, curl, chrome, tmux, zsh as well as oh-my-zsh themes and flatpaks for"
-    echo "vscode, spotify and dropbox."
-    echo "On macOS, we install brew and all these packages listed above using brew."
-
-    echo ""
-    echo "Options:"
-    echo "  -a | --all installs all applications possible for OS"
-    echo "  -z | --zsh installs zsh, sets it as default shell and installs themes"
-    echo "  -f | --flatpak skips installation of spotify, dropbox, slack flatpaks"
-    echo "  -v | --vim-plugins enables installation of vim plugins"
-    echo "  -h | --help prints this message"
+    printf "${GREEN}#%.0s${NC}" {1..80}
+    printf '\n'
+    printf "%*s" $(((${#title}+80)/2))  "$title"
+    printf '\n'
+    printf "${GREEN}#%.0s${NC}" {1..80}
+    printf '\n\n'
 }
 
 function install_flatpaks () {
@@ -44,7 +24,7 @@ function install_flatpaks () {
 }
 
 function setup_linux () {
-    print_section_header "Detected Ubuntu. Installing ubuntu packages"
+    print_section_header "Detected Ubuntu. Installing Ubuntu Packages"
 
     # ./ubuntu_ppas
     sudo apt-get update
@@ -107,19 +87,43 @@ function setup_zsh_themes () {
 
     print_section_header "Setting up oh-my-zsh theme and powerlevel10k"
 
-    cp -a .oh-my-zsh ~/.oh-my-zsh
+    cp -a .oh-my-zsh ~/
     mkdir -p .oh-my-zsh/themes
     cp rohit.zsh-theme ~/.oh-my-zsh/themes/
     cp -a powerlevel10k ~/.oh-my-zsh/themes/
     cp .zsh_profile_remote ~/.zsh_profile_remote
+    cp .p10k.zsh.catpuccin ~/
 }
 
 function setup_config_dir () {
     print_section_header "Setting up tmux, nvim, kitty configs"
 
-    rsync -a .config ~/.config
+    rsync -a .config ~/
 }
 
+function print_help () {
+
+    print_section_header "New Machine Setup Tool"
+
+    echo "Set up a new machine with dotfiles and common repos and programs such as"
+    echo "vim, curl, tmux, zsh as well as oh-my-zsh themes and flatpaks for"
+    echo "slack, spotify and dropbox."
+    echo "On macOS, we install brew and all these packages listed above using brew."
+
+    echo ""
+    echo "Options:"
+    echo "  -a | --all installs all applications possible for OS"
+    echo "  -s | --setup installs the packages defined in ubuntu_packages or Brewfile based on OS"
+    echo "  -z | --zsh installs zsh, sets it as default shell and installs themes"
+    echo "  -c | --configs sets up configs for tmux, nvim, kitty and others"
+    echo "  -f | --flatpak skips installation of spotify, dropbox and slack flatpaks"
+    echo "  -v | --vim-plugins enables installation of vim plugins"
+    echo "  -h | --help prints this message"
+}
+
+if [ -z "$@" ]; then
+    print_help
+fi
 
 POSITIONAL_ARGS=()
 
@@ -129,8 +133,16 @@ while [[ $# -gt 0 ]]; do
       ALL=YES
       shift # past argument
       ;;
+    -s|--setup)
+      SETUP=YES
+      shift # past argument
+      ;;
     -z|--zsh)
       ZSH=YES
+      shift # past argument
+      ;;
+    -c|--configs)
+      CONFIGS=YES
       shift # past argument
       ;;
     -f|--flatpak)
@@ -159,13 +171,11 @@ done
 
 set -- "${POSITIONAL_ARGS[@]}" # restore positional parameters
 
-
-if  [[ $(uname -s) == "Linux" ]] && [[ $(lsb_release -i | awk '{print $3}') == "Ubuntu" ]]; then
+if  [[ ${SETUP} == "YES" ]] && [[ $(uname -s) == "Linux" ]] && [[ $(lsb_release -i | awk '{print $3}') == "Ubuntu" ]]; then
     setup_linux
 fi
 
-
-if  [[ $(uname -s) == "Darwin" ]]; then
+if  [[ ${SETUP} == "YES" ]] && [[ $(uname -s) == "Darwin" ]]; then
     setup_macos
     cp .zshrc_mac ~/.zshrc_mac
 fi
@@ -175,18 +185,16 @@ if  [[ ${ZSH} == "YES" ]] || [[ $ALL == "YES" ]]; then
     setup_zsh_themes
 fi
 
-
 if  [[ ${VIM} == "YES" ]] || [[ $ALL == "YES" ]]; then
     setup_vim
 fi
 
-convenience_scripts
+if  [[ ${CONFIGS} == "YES" ]] || [[ $ALL == "YES" ]]; then
+    setup_config_dir
+    convenience_scripts
 
-
-if [ $USER == "rohit" ];
-then
-    setup_rohit_specific
+    if [ $USER == "rohit" ];
+    then
+        setup_rohit_specific
+    fi
 fi
-
-
-setup_config_dir
